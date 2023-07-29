@@ -4,5 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# You have to do this to import new crates, this also does version checking and updating (0.8.5 means any version grater than 0.8.5, but lower than 0.9.0)
+# To update the crates you have to run cargo update
 
 [dependencies]
+rand = "0.8.5"

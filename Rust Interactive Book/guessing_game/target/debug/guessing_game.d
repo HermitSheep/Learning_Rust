@@ -1,0 +1,1 @@
+/home/mateus/Documents/CasualPrograms/Rust/Rust\ Interactive\ Book/guessing_game/target/debug/guessing_game: /home/mateus/Documents/CasualPrograms/Rust/Rust\ Interactive\ Book/guessing_game/src/main.rs
