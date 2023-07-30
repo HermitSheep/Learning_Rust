@@ -22,11 +22,18 @@ fn main() {     // Commands are the same as usual
         .read_line(&mut guess)  //these are methods. & means it's a reference. References are something like variables, but that interact differently with threads and functions. They can also be mutable or immutable
         .expect("Failed to read line");     // except is a mandatory method that handles the result of functions. Result is a type of it's own, a sort of enum, that can be ok or err. It's basically seeing errors are variables. If you don't handle this value the compiler will get mad at you.
 
+    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        // this shadows the variable guess, such that it's new version becomes the true one
+        // u32 is a type of number (type of int in particular). Later rust also infers secret number is a u32 too because it's compared to guess
+        // trim erases the white spaces before and after guess (the enter gets saved as a white space at the end of guess)
+        // parse converts the string to a number. It can fail, so an except is necessary
+        
+
     println!("You guessed: {guess}");   // This is the way to print variables, if you want to print a compound expression, you do ("{}", expression)
     
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
+    match guess.cmp(&secret_number) {   // Match is like a broader switch case in that it matches an argument, but to an expression instead of to another argument
+        Ordering::Less => println!("Too small!"),   // cmp is the usual compare. Make sure both variables are of the same type
+        Ordering::Greater => println!("Too big!"),  // matche's expressions are rigid in structure which depends of the first expression
         Ordering::Equal => println!("You win!"),
     }
 }
